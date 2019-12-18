@@ -7,14 +7,14 @@
     tools:context=".RegisterActivity">
 
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
         <EditText
-            android:id="@+id/idText2"
+            android:id="@+id/idText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPersonName" />
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/nameText"
