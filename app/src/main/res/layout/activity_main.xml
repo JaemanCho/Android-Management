@@ -46,5 +46,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <Button
+            android:id="@+id/managementButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Management Button" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
