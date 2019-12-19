@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/colorPrimary"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
@@ -18,39 +19,54 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorWhite"/>
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ID"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textview_main"
+            android:gravity="center"
+            android:text="Your ID"
+            android:textColor="@color/colorWhite" />
 
         <TextView
             android:id="@+id/idText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorWhite"/>
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Password"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
-
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textview_main"
+            android:gravity="center"
+            android:text="Your Password"
+            android:textColor="@color/colorWhite" />
         <TextView
             android:id="@+id/passwordText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorWhite"/>
 
         <Button
             android:id="@+id/managementButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Management Button" />
+            android:text="Management Button"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/button_login"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
