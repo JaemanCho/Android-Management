@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,11 +15,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ManagementActivity extends AppCompatActivity {
+public class ManagementActivity<viod> extends AppCompatActivity {
 
     private ListView listView;
     private UserListAdapter adapter;
     private List<User> userList;
+    private List<User> saveList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class ManagementActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listView);
         userList = new ArrayList<User>();
+        saveList = new ArrayList<User>();
 
         try {
             JSONObject jsonObject = new JSONObject(intent.getStringExtra("userList"));
@@ -46,6 +50,7 @@ public class ManagementActivity extends AppCompatActivity {
                 User user = new User(userId, userPassword, userName, userAge);
                 if (!userId.equals("admin")) {
                     userList.add(user);
+                    saveList.add(user);
                 }
 
                 count++;
@@ -54,7 +59,40 @@ public class ManagementActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        adapter = new UserListAdapter(getApplicationContext(), userList, this);
+        adapter = new UserListAdapter(getApplicationContext(), userList, this, saveList);
         listView.setAdapter(adapter);
+
+        EditText search = (EditText) findViewById(R.id.search);
+
+        search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            // 文字が変わるたびに呼ばれる
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                searchUser(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    public void searchUser(String search) {
+        // すべて削除
+        userList.clear();
+        for (int i = 0; i < saveList.size(); i++) {
+            if (saveList.get(i).getUserId().contains(search)) {
+                // 該当Userを追加
+                userList.add(saveList.get(i));
+            }
+        }
+        adapter.notifyDataSetChanged();
     }
 }

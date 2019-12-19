@@ -21,11 +21,13 @@ public class UserListAdapter extends BaseAdapter {
     private Context context;
     private List<User> userList;
     private Activity parentActivity;
+    private List<User> saveList;
 
-    public UserListAdapter(Context context, List<User> userList, Activity parentActivity) {
+    public UserListAdapter(Context context, List<User> userList, Activity parentActivity, List<User> saveList) {
         this.context = context;
         this.userList = userList;
         this.parentActivity = parentActivity;
+        this.saveList = saveList;
     }
 
     @Override
@@ -66,7 +68,6 @@ public class UserListAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -76,6 +77,12 @@ public class UserListAdapter extends BaseAdapter {
 
                             if (success) {
                                 userList.remove(position);
+                                for (int i = 0; i < saveList.size(); i++) {
+                                    if (saveList.get(i).getUserId().equals(userId.getText().toString())) {
+                                        saveList.remove(i);
+                                        break;
+                                    }
+                                }
                                 // データ変更をアダプターに知らせる
                                 notifyDataSetChanged();
                             }
