@@ -51,8 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             .setPositiveButton("OK", null)
                                             .create()
                                             .show();
-                                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                    RegisterActivity.this.startActivity(intent);
+                                    finish();
                                 }
                                 else
                                 {

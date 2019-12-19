@@ -44,7 +44,9 @@ public class ManagementActivity extends AppCompatActivity {
                 userAge = object.getString("userAge");
 
                 User user = new User(userId, userPassword, userName, userAge);
-                userList.add(user);
+                if (!userId.equals("admin")) {
+                    userList.add(user);
+                }
 
                 count++;
             }
@@ -52,7 +54,7 @@ public class ManagementActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        adapter = new UserListAdapter(getApplicationContext(), userList);
+        adapter = new UserListAdapter(getApplicationContext(), userList, this);
         listView.setAdapter(adapter);
     }
 }
